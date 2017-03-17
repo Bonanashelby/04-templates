@@ -11,13 +11,18 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
-    <script id="articles-template" type="text/x-handlebars-template">
-      <h2>{{title}}</h2>
-      <h4>{{category}}</h4>
-      <h3>{{author}}</h3>
-      <a>{{authorUrl}}</a>
-      <p>{{publishedOn}}</p>
-      {{{body}}}
+    <script id="articles-template" type="text/x-handlebars-template" data-category="placeholder-category">
+      <article data-category="{{category}}" data-author="{{author}}">
+      <header>
+        <h1>{{title}}</h1>
+          <div class="byline">
+              By <address><a href="{{authorUrl}}">{{author}}</a></address>
+              published <time pubdate datetime="{{publishedOn}}">{{daysAgo}} days ago</time>
+          </div>
+      </header>
+        <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-on">Read on &rarr;</a>
+      </article>
     </script>
     <!--
       TODO: Add a script tag to hold the Handlebars template.
